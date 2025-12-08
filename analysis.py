@@ -105,68 +105,7 @@ try:
 except LookupError:
     nltk.download('stopwords')
 
-def analyze_semantic_network(df_turns, target_word="frustrated", window_size=5, top_n=30):
-    """
-    Builds a co-occurrence graph centered around a target word.
-    """
-    user_turns = df_turns[df_turns['role'] == 'user']['content'].tolist()
-    
-    # Simple tokenization
-    texts = [re.sub(r'[^\w\s]', '', t.lower()).split() for t in user_turns]
-    
-    stop_words = set(stopwords.words('english'))
-    custom_stops = {'im', 'ive', 'dont', 'cant', 'user', 'assistant', 'model', 'claude', 'ai'}
-    stop_words.update(custom_stops)
-
-    co_occurrence = Counter()
-    
-    for tokens in texts:
-        for i, token in enumerate(tokens):
-            # Check window around the token
-            if token == target_word: # Optimization
-                start = max(0, i - window_size)
-                end = min(len(tokens), i + window_size + 1)
-                
-                window_tokens = tokens[start:i] + tokens[i+1:end]
-                
-                for neighbor in window_tokens:
-                    # Filter: Stop words and short words
-                    if neighbor in stop_words or len(neighbor) < 3:
-                        continue
-                        
-                    # Avoid self-loops and directionality duplication
-                    pair = tuple(sorted((token, neighbor)))
-                    co_occurrence[pair] += 1
-                
-    # Filter edges regarding target word
-    # If target_word is provided, we prioritize edges connected to it, 
-    # but we also want the general "context" of that word.
-    
-    G = nx.Graph()
-    
-    # Add substantial edges
-    for (w1, w2), count in co_occurrence.most_common(500): # Check top 500 overall first
-        if count > 2:
-            G.add_edge(w1, w2, weight=count)
-            
-    # Now extract the ego graph for the target word if it exists
-    if target_word in G:
-        try:
-            # Radius 1 or 2 to see immediate context
-            ego_G = nx.ego_graph(G, target_word, radius=1)
-            return ego_G
-        except:
-            return G # Return whole graph if ego fails
-    
-    # If target word not found in top edges, try to search specifically for it in raw counts
-    relevant_pairs = {pair: count for pair, count in co_occurrence.items() if target_word in pair}
-    if relevant_pairs:
-        SG = nx.Graph()
-        for (w1, w2), count in Counter(relevant_pairs).most_common(top_n):
-             SG.add_edge(w1, w2, weight=count)
-        return SG
-        
-    return G
+# analyze_semantic_network has been moved to semantic_analysis.py
 
 def analyze_maturity_clusters(df_turns, n_clusters=3):
     """
@@ -200,13 +139,16 @@ def analyze_maturity_clusters(df_turns, n_clusters=3):
         user_ids.append(uid)
         
     if not user_features:
-        return None, None, None
+        return None, None, None, None
         
     X = np.array(user_features)
     
     # Clustering
     kmeans = KMeans(n_clusters=n_clusters, random_state=42)
     labels = kmeans.fit_predict(X)
+    
+    # Validation: Silhouette Score
+    score = silhouette_score(X, labels)
     
     # Dimensionality Reduction for Visualization (2D)
     pca = PCA(n_components=2)
@@ -223,4 +165,4 @@ def analyze_maturity_clusters(df_turns, n_clusters=3):
         'tech_score': X[:, 3]
     })
     
-    return cluster_data, kmeans.cluster_centers_, ["Avg Length", "Complexity", "Refinement", "Tech Score"]
+    return cluster_data, kmeans.cluster_centers_, ["Avg Length", "Complexity", "Refinement", "Tech Score"], score

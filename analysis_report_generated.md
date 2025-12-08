@@ -56,16 +56,73 @@ Found 3889 mentions regarding career/skills/future.
 ## 5. Advanced Analysis (Diagnostic & Predictive)
 
 ### 5.1 Semantic Network Analysis
-Generated network graph centered around **'frustrated'**.
+Generated network graph centered around **'satisfied'**.
 ![Semantic Network](semantic_network.png)
+| Word 1    | Word 2    |   Weight |
+|:----------|:----------|---------:|
+| pretty    | satisfied |       19 |
+| satisfied | used      |       14 |
+| satisfied | usually   |       12 |
+| satisfied | left      |       12 |
+| satisfied | results   |       10 |
+| satisfied | makes     |       10 |
+| satisfied | extremely |        7 |
+| satisfied | helped    |        7 |
+| satisfied | always    |        7 |
+| satisfied | youre     |        7 |
 
-### 5.2 AI Maturity Matrix (Clustering)
-Performed K-Means clustering (k=3) based on verbosity, complexity, refinement frequency, and technical terms.
-![Maturity Clusters](maturity_clusters.png)
+## 7. Comparative Analysis (Workforce vs Creatives vs Scientists)
+Comparison of top themes across different user professions.
+![Comparative Topics](comparative_topics.png)
 
-**Cluster Centroids (Average Feature Values):**
-| Cluster | Avg Length | Complexity | Refinement Count | Tech Score |
-| --- | --- | --- | --- | --- |
-| 0 | 745.57 | 0.40 | 17.51 | 4.08 |
-| 1 | 1095.39 | 0.38 | 26.07 | 5.83 |
-| 2 | 522.17 | 0.42 | 13.24 | 2.94 |
+**Top Topics Data:**
+| term     |      rank | Category   |
+|:---------|----------:|:-----------|
+| ai       | 3404.79   | Workforce  |
+| work     | 1244.79   | Workforce  |
+| use      | 1181.31   | Workforce  |
+| like     | 1053.23   | Workforce  |
+| tasks    |  917.802  | Workforce  |
+| really   |  863.7    | Workforce  |
+| time     |  830.32   | Workforce  |
+| using    |  783.559  | Workforce  |
+| think    |  770.973  | Workforce  |
+| sounds   |  668.026  | Workforce  |
+| ai       |  347.355  | Creatives  |
+| creative |  167.018  | Creatives  |
+| like     |  127.74   | Creatives  |
+| work     |  123.995  | Creatives  |
+| really   |   98.3813 | Creatives  |
+| using    |   85.8686 | Creatives  |
+| sounds   |   79.2579 | Creatives  |
+| process  |   78.7788 | Creatives  |
+| use      |   77.4502 | Creatives  |
+| project  |   75.5496 | Creatives  |
+| ai       |  285.52   | Scientists |
+| research |  122.628  | Scientists |
+| like     |   99.4548 | Scientists |
+| work     |   95.167  | Scientists |
+| process  |   86.3309 | Scientists |
+| data     |   86.3089 | Scientists |
+| really   |   82.2134 | Scientists |
+| using    |   79.6866 | Scientists |
+| use      |   78.1429 | Scientists |
+| project  |   72.022  | Scientists |
+
+## 8. Model Validation Strategy
+### 8.1 Clustering Validity
+- **Silhouette Score**: `0.000`
+> *Interpretation*: A score above 0.3 indicates fair structure with natural overlap.
+
+### 8.2 Semantic Accuracy (KWIC)
+Verified context for connection **'satisfied' + 'results'**:
+- > "I usually feel more frustrated than satisfied when using AI at work to solve a niche problem. It's usually when I tell the AI the solution they have provided results in errors, doesn't work as they ha..."
+- > "When I'm crafting an article, I usually start with researching the topic online and via LLMs so I can come up with a general understanding. Then, I create an outline based on what the most important a..."
+
+### 8.3 Reliability
+- **Reproducibility**: Parameter `random_state=42` enforced.
+
+## 9. Key Insights (Portfolio Slide)
+Visual summary for stakeholder presentation.
+![Comparative Chart](portfolio_comparison.png)
+![Persona Card](portfolio_persona.png)
