@@ -1,0 +1,9 @@
+pandas
+datasets
+scikit-learn
+matplotlib
+seaborn
+nltk
+openpyxl
+networkx
+scipy
