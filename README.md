@@ -4,7 +4,7 @@
 
 This project provides an advanced analytical suite for the **"Anthropic Interviewer"** dataset. It goes beyond basic topic modeling to perform deep behavioral segmentation, comparative analysis across professional roles, and rigorous reliability testing.
 
-## 🚀 Key Capabilities
+## Key Capabilities
 
 ### 1. Behavior Comparison (Workforce vs Creatives vs Scientists)
 We implemented a comparative analysis module to contrast vocabulary and intent across different dataset splits.
@@ -28,7 +28,7 @@ We don't just generate charts; we validate them.
 
 ---
 
-## 🗂 Project Structure
+## Project Structure
 
 *   **`src/`**: Python source code.
     *   **`main.py`**: The orchestrator.
@@ -40,7 +40,7 @@ We don't just generate charts; we validate them.
 
 ---
 
-## 🛠 Installation & Usage
+## Installation & Usage
 
 1.  **Install Dependencies**:
     ```bash
@@ -61,7 +61,7 @@ We don't just generate charts; we validate them.
 
 ---
 
-## 📊 Outputs
+## Outputs
 Running the analysis produces:
 *   `docs/analysis_report_generated.md`: Full insights report.
 *   `output/portfolio_comparison.png`: Key Insights Chart.

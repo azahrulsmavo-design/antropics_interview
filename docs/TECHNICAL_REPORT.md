@@ -1,4 +1,4 @@
-# 🛠️ Technical Report: Fundamental Code & Models
+# Technical Report: Fundamental Code & Models
 **Project**: Anthropic Interview Analysis
 **Domain**: NLP, User Behavior Analysis, Data Visualization
 

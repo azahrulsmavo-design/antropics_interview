@@ -2,7 +2,7 @@
 
 This guide details how to customize the `main.py` and `analysis.py` scripts to tailor the semantic network visualization to your specific needs.
 
-## 🔧 1. Core Parameters (Direct Visual Impact)
+## 1. Core Parameters (Direct Visual Impact)
 
 ### A. In `main.py` (Visualization Section)
 
@@ -50,7 +50,7 @@ if len(neighbor) < 3:  # ↓ Decrease from 4 → 3 to include shorter words
     continue
 ```
 
-## 🎨 2. Advanced Visual Customization (Add to `main.py`)
+## 2. Advanced Visual Customization (Add to `main.py`)
 
 ### A. Dynamic Colors based on Node Degree
 ```python
@@ -94,7 +94,7 @@ plt.savefig(
 )
 ```
 
-## ⚙️ 3. Advanced Analysis Customization (In `analysis.py`)
+## 3. Advanced Analysis Customization (In `analysis.py`)
 
 ### A. Smart Percentile Filtering (Instead of hard threshold)
 ```python
@@ -118,7 +118,7 @@ sentiment_score = sum(text.lower().count(w) for w in positive_words) - \
 user_features.append([avg_len, complexity, refinement_score, tech_score, sentiment_score])
 ```
 
-## 🚀 4. Practical Customization Workflow
+## 4. Practical Customization Workflow
 
 1.  **Start with Filtering**:
     Lower `count > 6` → `count > 3` in `analysis.py` to see *all* connections.
