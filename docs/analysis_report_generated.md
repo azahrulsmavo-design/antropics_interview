@@ -57,7 +57,7 @@ Found 3889 mentions regarding career/skills/future.
 
 ### 5.1 Semantic Network Analysis
 Generated network graph centered around **'satisfied'**.
-![Semantic Network](semantic_network.png)
+![Semantic Network](output/semantic_network.png)
 | Word 1    | Word 2    |   Weight |
 |:----------|:----------|---------:|
 | pretty    | satisfied |       19 |
@@ -73,7 +73,7 @@ Generated network graph centered around **'satisfied'**.
 
 ## 7. Comparative Analysis (Workforce vs Creatives vs Scientists)
 Comparison of top themes across different user professions.
-![Comparative Topics](comparative_topics.png)
+![Comparative Topics](output/comparative_topics.png)
 
 **Top Topics Data:**
 | term     |      rank | Category   |
@@ -124,5 +124,5 @@ Verified context for connection **'satisfied' + 'results'**:
 
 ## 9. Key Insights (Portfolio Slide)
 Visual summary for stakeholder presentation.
-![Comparative Chart](portfolio_comparison.png)
-![Persona Card](portfolio_persona.png)
+![Comparative Chart](output/portfolio_comparison.png)
+![Persona Card](output/portfolio_persona.png)

@@ -1,6 +1,6 @@
 # Anthropic Interviewer Analysis Portfolio
 
-![Portfolio Comparison Chart](portfolio_comparison.png)
+![Portfolio Comparison Chart](output/portfolio_comparison.png)
 
 This project provides an advanced analytical suite for the **"Anthropic Interviewer"** dataset. It goes beyond basic topic modeling to perform deep behavioral segmentation, comparative analysis across professional roles, and rigorous reliability testing.
 
@@ -30,13 +30,13 @@ We don't just generate charts; we validate them.
 
 ## 🗂 Project Structure
 
-*   **`main.py`**: The orchestrator. Runs the full ETL pipeline, validation, and visual generation.
-*   **`analysis.py`**: Core logic for TF-IDF, Clustering, and Interaction tagging.
-*   **`semantic_analysis.py`**: Dedicated module for Network Analysis and Graphing.
-*   **`comparative_analysis.py`**: Handles multi-split data loading and comparison.
-*   **`portfolio_visuals.py`**: Generates high-quality assets for the portfolio slide.
-*   **`data_loader.py`**: Interface for Hugging Face dataset loading.
-*   **`TECHNICAL_REPORT.md`**: Detailed explanation of the algorithms and models used.
+*   **`src/`**: Python source code.
+    *   **`main.py`**: The orchestrator.
+    *   **`analysis.py`**: Core logic.
+    *   ...and other modules.
+*   **`notebooks/`**: Jupyter notebooks (`anthropic_analysis_v2.ipynb`).
+*   **`docs/`**: Documentation (`TECHNICAL_REPORT.md`, `analysis_report_generated.md`).
+*   **`output/`**: Generated images and results.
 
 ---
 
@@ -49,22 +49,22 @@ We don't just generate charts; we validate them.
 
 2.  **Run the Analysis**:
     ```bash
-    python main.py
+    python src/main.py
     ```
-    *Generates `analysis_report_generated.md` and all visual assets.*
+    *Generates `docs/analysis_report_generated.md` and visual assets in `output/`.*
 
 3.  **Explore the Notebook**:
     ```bash
-    python generate_notebook.py
+    python src/generate_notebook.py
     ```
-    *Creates `anthropic_analysis_v2.ipynb` for interactive exploration.*
+    *Creates `notebooks/anthropic_analysis_v2.ipynb`.*
 
 ---
 
 ## 📊 Outputs
 Running the analysis produces:
-*   `analysis_report_generated.md`: Full insights report (Deep Dive, Stats, Validation).
-*   `portfolio_comparison.png`: Key Insights Chart.
-*   `portfolio_persona.png`: "The Architect" Persona Card.
-*   `semantic_network.png`: Word Co-occurrence Graph.
-*   `maturity_clusters.png`: User Segmentation Scatter Plot.
+*   `docs/analysis_report_generated.md`: Full insights report.
+*   `output/portfolio_comparison.png`: Key Insights Chart.
+*   `output/portfolio_persona.png`: "The Architect" Persona Card.
+*   `output/semantic_network.png`: Word Co-occurrence Graph.
+*   `output/maturity_clusters.png`: User Segmentation Scatter Plot.

@@ -236,7 +236,7 @@ nb['cells'] = [
     nbf.v4.new_markdown_cell(text_insight)
 ]
 
-with open('anthropic_analysis_v2.ipynb', 'w') as f:
+with open('notebooks/anthropic_analysis_v2.ipynb', 'w') as f:
     nbf.write(nb, f)
 
 print("Notebook generated successfully as anthropic_analysis_v2.ipynb")

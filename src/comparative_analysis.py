@@ -66,7 +66,7 @@ def run_comparative_analysis():
     plt.xticks(rotation=45)
     plt.ylabel("TF-IDF Score")
     plt.tight_layout()
-    output_file = "comparative_topics.png"
+    output_file = "output/comparative_topics.png"
     plt.savefig(output_file, dpi=300)
     plt.close()
     

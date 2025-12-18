@@ -77,7 +77,7 @@ def main():
     G = semantic_analysis.analyze_semantic_network(df_turns, target_word=target_word)
     
     # Visualization is now handled by the module
-    output_img = semantic_analysis.visualize_network(G, target_word, "semantic_network.png")
+    output_img = semantic_analysis.visualize_network(G, target_word, "output/semantic_network.png")
     
     report_lines.append(f"\n### 5.1 Semantic Network Analysis")
     report_lines.append(f"Generated network graph centered around **'{target_word}'**.")
@@ -106,7 +106,7 @@ def main():
         plt.xlabel("PCA Component 1")
         plt.ylabel("PCA Component 2")
         plt.legend(title='Cluster')
-        plt.savefig("maturity_clusters.png", dpi=300)
+        plt.savefig("output/maturity_clusters.png", dpi=300)
         plt.close()
         
         report_lines.append(f"\n### 5.2 AI Maturity Matrix (Clustering)")
@@ -185,11 +185,11 @@ def main():
     # --- KEY INSIGHTS (PORTFOLIO SLIDE) ---
     print("\n[Generating Portfolio Visuals]")
     # 1. Comparative Chart
-    chart_file = portfolio_visuals.generate_comparative_chart(comp_df, "portfolio_comparison.png")
+    chart_file = portfolio_visuals.generate_comparative_chart(comp_df, "output/portfolio_comparison.png")
     
     # 2. Persona Card
     # We pass dummy logic since the function just draws texts, but in a real scenario we'd pass stats
-    persona_file = portfolio_visuals.generate_persona_card(None, "portfolio_persona.png")
+    persona_file = portfolio_visuals.generate_persona_card(None, "output/portfolio_persona.png")
     
     report_lines.append(f"\n## 9. Key Insights (Portfolio Slide)")
     report_lines.append("Visual summary for stakeholder presentation.")
@@ -198,7 +198,7 @@ def main():
     if persona_file:
          report_lines.append(f"![Persona Card]({persona_file})")
 
-    with open("analysis_report_generated.md", "w", encoding="utf-8") as f:
+    with open("docs/analysis_report_generated.md", "w", encoding="utf-8") as f:
         f.write("\n".join(report_lines))
     
     print("\n--- Analysis Complete. Report saved to analysis_report_generated.md ---")
